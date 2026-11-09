@@ -8,30 +8,30 @@ Skills are distributed from this GitHub repository. New installs fetch the curre
 
 ## Install everything
 
-Clone this repository, then run one command to install all skills, the Codex
-hooks, and the Claude Code plugin:
+Clone this repository, then run one command to install all skills and the
+Codex hooks:
 
 ```sh
 python3 install.py
 ```
 
-Restart Codex and Claude Code after installation and approve the hooks if
-prompted. The installer requires Node.js/npm and Claude Code to be installed.
+Restart Codex after installation and approve the hooks if prompted. The
+installer requires Node.js/npm.
 
 ## Install skills only
 
-Install one skill for Codex and Claude Code:
+Install one skill for Codex:
 
 ```sh
-npx skills add OlivierLB/agent-skills --skill decision-review -a codex -a claude-code -g -y
+npx skills add OlivierLB/agent-skills --skill decision-review -a codex -g -y
 ```
 
 This also makes the skill discoverable through [skills.sh](https://skills.sh/OlivierLB/agent-skills). Its listing and install count are populated by installs through the `skills` CLI.
 
-Install every skill in this collection for both agents:
+Install every skill in this collection for Codex:
 
 ```sh
-npx skills add OlivierLB/agent-skills --skill '*' -a codex -a claude-code -g -y
+npx skills add OlivierLB/agent-skills --skill '*' -a codex -g -y
 ```
 
 Update installed skills from their GitHub sources:
@@ -40,13 +40,13 @@ Update installed skills from their GitHub sources:
 npx skills update
 ```
 
-These commands install skills globally so they are available across projects. Remove `-g` to install into the current project instead. Check the installed skills with `npx skills ls -a codex -a claude-code`. Every skill in this collection must support both Codex and Claude Code; see [CONTRIBUTING.md](CONTRIBUTING.md) before adding one. The commands use the open-source [`skills` CLI](https://github.com/vercel-labs/skills), which supports explicit agent selection.
+These commands install skills globally so they are available across projects. Remove `-g` to install into the current project instead. Check the installed skills with `npx skills ls -a codex`. This collection targets Codex; see [CONTRIBUTING.md](CONTRIBUTING.md) before adding a skill. The commands use the open-source [`skills` CLI](https://github.com/vercel-labs/skills).
 
 ## Skills
 
 | Skill | Purpose |
 | --- | --- |
-| [`decision-review`](skills/productivity/decision-review/SKILL.md) | Explore ideas, critically review work, or advise on consequential decisions through five independent perspectives and anonymous peer review. |
+| [`decision-review`](skills/productivity/decision-review/SKILL.md) | Explore ideas, critically review work, or advise on consequential decisions through five perspectives and a peer review with role labels removed. |
 
 ## Add a skill
 

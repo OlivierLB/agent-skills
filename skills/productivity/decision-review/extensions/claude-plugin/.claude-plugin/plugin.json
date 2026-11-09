@@ -1,6 +1,0 @@
-{
-  "name": "decision-review",
-  "version": "0.1.0",
-  "description": "Decision Review skill with a Plan-mode pre-edit hook.",
-  "hooks": "./hooks/hooks.json"
-}
