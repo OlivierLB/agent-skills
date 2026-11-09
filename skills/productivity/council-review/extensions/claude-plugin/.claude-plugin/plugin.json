@@ -1,0 +1,6 @@
+{
+  "name": "council-review",
+  "version": "0.1.0",
+  "description": "Council Review skill with a Plan-mode pre-edit hook.",
+  "hooks": "hooks/hooks.json"
+}
