@@ -1,0 +1,6 @@
+{
+  "name": "council-review-plan-gate",
+  "description": "Optional Plan-mode pre-edit reminder for Council Review",
+  "version": "0.1.0",
+  "hooks": "hooks/hooks.json"
+}

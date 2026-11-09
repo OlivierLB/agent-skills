@@ -1,0 +1,15 @@
+{
+  "name": "council-review-local",
+  "owner": { "name": "Council Review" },
+  "metadata": {
+    "description": "Council Review skill and Plan-mode hooks",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "council-review",
+      "source": "./",
+      "description": "Five-perspective advice, exploration, and critical review with Plan-mode hooks"
+    }
+  ]
+}
