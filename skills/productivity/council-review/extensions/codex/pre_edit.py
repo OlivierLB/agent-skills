@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Block the first potentially mutating Codex tool call in Plan mode."""
+"""Prompt for Council Review and require one continuation in Plan mode."""
+
 import json
 import os
 import sys
@@ -14,24 +15,57 @@ except (json.JSONDecodeError, OSError):
 if event.get("permission_mode") != "plan":
     sys.exit(0)
 
-if event.get("hook_event_name") == "UserPromptSubmit":
-    session = str(event.get("session_id", ""))
-    if not session or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in session):
-        sys.exit(0)
-    marker = Path(tempfile.gettempdir()) / f"council-review-first-{session}.seen"
-    try:
-        fd = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-        os.close(fd)
-    except FileExistsError:
-        sys.exit(0)
-    print(json.dumps({"hookSpecificOutput": {"hookEventName": "UserPromptSubmit", "additionalContext": "Plan mode: run the Council Review skill on the user's initial request before drafting the plan. This is advisory; show findings and continue the task."}}))
-    sys.exit(0)
-
 session = str(event.get("session_id", ""))
 if not session or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_" for c in session):
     sys.exit(0)
 
-marker = Path(tempfile.gettempdir()) / f"council-review-{session}.seen"
+tmp = Path(tempfile.gettempdir())
+event_name = event.get("hook_event_name")
+
+if event_name == "UserPromptSubmit":
+    first = tmp / f"council-review-first-{session}.seen"
+    try:
+        fd = os.open(first, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        os.close(fd)
+    except FileExistsError:
+        sys.exit(0)
+
+    pending = tmp / f"council-review-stop-{session}.pending"
+    try:
+        fd = os.open(pending, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        os.close(fd)
+    except OSError as exc:
+        first.unlink(missing_ok=True)
+        print(f"Council Review: unable to create Plan-mode checkpoint: {exc}", file=sys.stderr)
+        sys.exit(2)
+
+    print(json.dumps({
+        "hookSpecificOutput": {
+            "hookEventName": "UserPromptSubmit",
+            "additionalContext": "Plan mode: immediately invoke and complete the council-review skill on the user's initial request before drafting a plan or answering. Then continue with the task."
+        }
+    }))
+    sys.exit(0)
+
+if event_name == "Stop":
+    pending = tmp / f"council-review-stop-{session}.pending"
+    try:
+        pending.unlink()
+    except FileNotFoundError:
+        sys.exit(0)
+    except OSError:
+        sys.exit(0)
+
+    print(json.dumps({
+        "decision": "block",
+        "reason": "Before finalizing the response to the initial Plan-mode request, run the council-review skill now if you have not already completed it. If completed, include its synthesized findings before answering the user's request. Do not merely state that the review should be run."
+    }))
+    sys.exit(0)
+
+if event_name != "PreToolUse":
+    sys.exit(0)
+
+marker = tmp / f"council-review-{session}.seen"
 try:
     fd = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
 except FileExistsError:
