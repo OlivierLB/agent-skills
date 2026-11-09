@@ -4,12 +4,20 @@ Source Synthesis helps choose sources suited to a research question and assess w
 
 See [SKILL.md](SKILL.md) for the complete workflow.
 
+This skill is versioned as part of the full collection. See the repository [version](../../../VERSION) and [changelog](../../../CHANGELOG.md). To pin the skill to a collection release, use that release's Git tag.
+
 ## Install
 
 Install for Codex with the Skills CLI:
 
 ```sh
 npx skills add OlivierLB/agent-skills --skill source-synthesis -a codex -g -y
+```
+
+To install a specific collection release:
+
+```sh
+npx skills add OlivierLB/agent-skills@v1.0.0 --skill source-synthesis -a codex -g -y
 ```
 
 Remove `-g` to install into the current project instead of globally. Confirm the skill is available with:
