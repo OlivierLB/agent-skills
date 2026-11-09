@@ -2,21 +2,21 @@
 
 A growing collection of focused skills for AI coding agents. Install only the skills you want, or install the whole collection.
 
-## Install
+## Install for Codex and Claude
 
-Install one skill:
-
-```sh
-npx skills add OlivierLB/agent-skills --skill council-review
-```
-
-Install every skill in this collection:
+Install one skill for Codex and Claude Code:
 
 ```sh
-npx skills add OlivierLB/agent-skills --all
+npx skills add OlivierLB/agent-skills --skill council-review -a codex -a claude-code -g -y
 ```
 
-The installer detects supported agents and asks where to install. Add `--global` for user-wide installation or `--agent codex` to target Codex. See the [skills CLI documentation](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for current options.
+Install every skill in this collection for both agents:
+
+```sh
+npx skills add OlivierLB/agent-skills --skill '*' -a codex -a claude-code -g -y
+```
+
+These commands install skills globally so they are available across projects. Remove `-g` to install into the current project instead. Check the installed skills with `npx skills ls -a codex -a claude-code`. Every skill in this collection must support both Codex and Claude Code; see [CONTRIBUTING.md](CONTRIBUTING.md) before adding one. The commands use the open-source [`skills` CLI](https://github.com/vercel-labs/skills), which supports explicit agent selection.
 
 ## Skills
 
