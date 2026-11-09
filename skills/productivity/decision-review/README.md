@@ -10,6 +10,8 @@ Install for Codex with the Skills CLI:
 npx skills add OlivierLB/agent-skills --skill decision-review -a codex -g -y
 ```
 
+To install the whole collection from a local checkout, run `python3 install.py` at its root. This installs all skills and any available Codex integrations.
+
 For Plan-mode reminders and checkpoints, follow the [Codex integration install steps](extensions/README.md).
 
 ## Plan behavior

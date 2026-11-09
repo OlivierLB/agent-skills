@@ -18,5 +18,9 @@ def run(*args):
 
 
 run("npx", "--yes", "skills", "add", str(root), "--skill", "*", "-a", "codex", "-g", "-y")
-run(sys.executable, str(root / "skills/productivity/decision-review/extensions/codex/install.py"))
-print("All skills and Codex hooks are installed. Restart Codex and approve hooks if prompted.")
+
+integrations = sorted(root.glob("skills/*/*/extensions/codex/install.py"))
+for installer in integrations:
+    run(sys.executable, str(installer))
+
+print("All skills and available Codex integrations are installed. Restart Codex and approve hooks if prompted.")
