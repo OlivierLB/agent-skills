@@ -1,6 +1,6 @@
 # Decision Review
 
-Decision Review offers decision advice, creative exploration, and general-purpose critical review. See [SKILL.md](SKILL.md) for the roles and workflow; this matrix shows which five roles make up each team.
+Decision Review offers decision advice, creative exploration, and general-purpose critical review. See [SKILL.md](SKILL.md) for the self-contained roles, role matrix, and workflow.
 
 ## Install the skill
 
@@ -11,20 +11,6 @@ npx skills add OlivierLB/agent-skills --skill decision-review -a codex -g -y
 ```
 
 For Plan-mode reminders and checkpoints, follow the [Codex integration install steps](extensions/README.md).
-
-## Roles by mode
-
-| Role | Decision advice | Creative exploration | Critical review |
-| --- |:---:|:---:|:---:|
-| Contrarian | ✓ | | ✓ |
-| First-principles thinker | ✓ | ✓ | ✓ |
-| Expansionist | ✓ | ✓ | |
-| Outsider | ✓ | ✓ | ✓ |
-| Executor | ✓ | | |
-| Reframer | | ✓ | |
-| Analogy scout | | ✓ | |
-| Claim auditor | | | ✓ |
-| Adversarial reader | | | ✓ |
 
 ## Plan behavior
 
