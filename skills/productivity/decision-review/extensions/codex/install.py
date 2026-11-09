@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install Council Review hooks into the current user's Codex CLI config."""
+"""Install Decision Review hooks into the current user's Codex CLI config."""
 import json
 import os
 from pathlib import Path
@@ -22,11 +22,11 @@ prompts = hooks.setdefault("UserPromptSubmit", [])
 if not any(any(str(script) in h.get("command", "") for h in e.get("hooks", [])) for e in prompts):
     prompts.append(prompt_entry)
 stops = hooks.setdefault("Stop", [])
-stop_entry = {"hooks": [{"type": "command", "command": f'python3 "${script}"', "timeout": 10}]}
+stop_entry = {"hooks": [{"type": "command", "command": f'python3 "{script}"', "timeout": 10}]}
 if not any(any(str(script) in h.get("command", "") for h in e.get("hooks", [])) for e in stops):
     stops.append(stop_entry)
 tmp = config.with_suffix(".json.tmp")
 tmp.write_text(json.dumps(data, indent=2) + "\n")
 os.chmod(tmp, 0o600)
 tmp.replace(config)
-print(f"Installed Council Review Plan-mode hooks in {config}")
+print(f"Installed Decision Review Plan-mode hooks in {config}")

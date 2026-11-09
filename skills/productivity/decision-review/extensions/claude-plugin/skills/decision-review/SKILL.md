@@ -1,9 +1,9 @@
 ---
-name: council-review
+name: decision-review
 description: Automatically run a five-perspective council on the initial user request whenever Plan mode is active, before drafting the plan. Also run for decision advice, creative exploration, or critical review when explicitly requested.
 ---
 
-# Council Review
+# Decision Review
 
 Use five independent agents for the selected mode, then run an anonymous peer review and synthesize the findings. Different roles do not imply different models. Reply in the user's language.
 

@@ -7,7 +7,7 @@ Install the skill and hook for the host you use. The public plugin directory sub
 From the repository root, run:
 
 ```sh
-python3 skills/productivity/council-review/extensions/codex/install.py
+python3 skills/productivity/decision-review/extensions/codex/install.py
 ```
 
 The installer merges `UserPromptSubmit`, `Stop`, and `PreToolUse` hooks into `~/.codex/hooks.json`, preserving existing entries and avoiding duplicates. Restart Codex CLI and approve the hooks if prompted. On the first prompt in Plan mode, `UserPromptSubmit` adds the skill instruction and `Stop` forces one continuation before the answer can finish. `PreToolUse` also blocks the first matching `apply_patch` or `Bash` call per session. It treats every Bash call as a possible edit. Later matching calls pass. The continuation is a stronger checkpoint, not proof that the model completed the review.
@@ -17,18 +17,18 @@ The installer merges `UserPromptSubmit`, `Stop`, and `PreToolUse` hooks into `~/
 The local marketplace and complete plugin package are in `claude-plugin/`. From the repository root:
 
 ```sh
-claude plugin marketplace add ./skills/productivity/council-review/extensions/claude-plugin
-claude plugin install council-review@council-review-local
+claude plugin marketplace add ./skills/productivity/decision-review/extensions/claude-plugin
+claude plugin install decision-review@decision-review-local
 ```
 
 Restart Claude Code and approve/trust the plugin hooks. To remove it:
 
 ```sh
-claude plugin uninstall council-review@council-review-local
-claude plugin marketplace remove council-review-local
+claude plugin uninstall decision-review@decision-review-local
+claude plugin marketplace remove decision-review-local
 ```
 
-The plugin contains `.claude-plugin/plugin.json`, the skill under `skills/council-review/`, and a `PreToolUse` hook. The hook matches `Edit`, `Write`, and `Bash`, and is expected to block the first matching call in Plan mode.
+The plugin contains `.claude-plugin/plugin.json`, the skill under `skills/decision-review/`, and a `PreToolUse` hook. The hook matches `Edit`, `Write`, and `Bash`, and is expected to block the first matching call in Plan mode.
 
 ## After the hook blocks
 

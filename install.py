@@ -18,15 +18,15 @@ def run(*args):
 
 
 run("npx", "--yes", "skills", "add", str(root), "--skill", "*", "-a", "codex", "-a", "claude-code", "-g", "-y")
-run(sys.executable, str(root / "skills/productivity/council-review/extensions/codex/install.py"))
+run(sys.executable, str(root / "skills/productivity/decision-review/extensions/codex/install.py"))
 
-marketplace = "council-review-local"
+marketplace = "decision-review-local"
 if marketplace not in subprocess.check_output(
     ["claude", "plugin", "marketplace", "list"], text=True
 ):
-    run("claude", "plugin", "marketplace", "add", str(root / "skills/productivity/council-review/extensions/claude-plugin"))
+    run("claude", "plugin", "marketplace", "add", str(root / "skills/productivity/decision-review/extensions/claude-plugin"))
 
-plugin = "council-review@council-review-local"
+plugin = "decision-review@decision-review-local"
 if plugin not in subprocess.check_output(["claude", "plugin", "list"], text=True):
     run("claude", "plugin", "install", plugin, "-s", "user", "-y")
 

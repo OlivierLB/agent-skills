@@ -19,7 +19,7 @@ prompted. The installer requires Node.js/npm and Claude Code to be installed.
 Install one skill for Codex and Claude Code:
 
 ```sh
-npx skills add OlivierLB/agent-skills --skill council-review -a codex -a claude-code -g -y
+npx skills add OlivierLB/agent-skills --skill decision-review -a codex -a claude-code -g -y
 ```
 
 Install every skill in this collection for both agents:
@@ -34,7 +34,7 @@ These commands install skills globally so they are available across projects. Re
 
 | Skill | Purpose |
 | --- | --- |
-| [`council-review`](skills/productivity/council-review/SKILL.md) | Explore ideas, critically review work, or advise on consequential decisions through five independent perspectives and anonymous peer review. |
+| [`decision-review`](skills/productivity/decision-review/SKILL.md) | Explore ideas, critically review work, or advise on consequential decisions through five independent perspectives and anonymous peer review. |
 
 ## Add a skill
 

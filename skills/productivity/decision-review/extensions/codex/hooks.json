@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /absolute/path/to/council-review/extensions/codex/pre_edit.py"
+            "command": "python3 \"/absolute/path/to/decision-review/extensions/codex/pre_edit.py\""
           }
         ]
       }
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /absolute/path/to/council-review/extensions/codex/pre_edit.py"
+            "command": "python3 \"/absolute/path/to/decision-review/extensions/codex/pre_edit.py\""
           }
         ]
       }
@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /absolute/path/to/council-review/extensions/codex/pre_edit.py"
+            "command": "python3 \"/absolute/path/to/decision-review/extensions/codex/pre_edit.py\""
           }
         ]
       }

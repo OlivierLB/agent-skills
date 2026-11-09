@@ -1,13 +1,13 @@
 {
-  "name": "council-review-local",
-  "owner": { "name": "Council Review" },
+  "name": "decision-review-local",
+  "owner": { "name": "Decision Review" },
   "metadata": {
-    "description": "Council Review skill and Plan-mode hooks",
+    "description": "Decision Review skill and Plan-mode hooks",
     "version": "0.1.0"
   },
   "plugins": [
     {
-      "name": "council-review",
+      "name": "decision-review",
       "source": "./",
       "description": "Five-perspective advice, exploration, and critical review with Plan-mode hooks"
     }
