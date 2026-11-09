@@ -1,6 +1,6 @@
 # Install the Plan-mode integration
 
-Install the skill and hook for the host you use. The public plugin directory submission excludes lifecycle hooks, so the hook integrations are installed locally. Hooks require host approval/trust and cannot launch subagents themselves.
+Install the skill and hook for the host you use. The public plugin directory submission excludes lifecycle hooks, so hook integrations are installed locally. Codex hooks can inject instructions and force a continuation, but cannot invoke the skill or launch its agents themselves.
 
 ## Codex CLI
 
@@ -10,7 +10,7 @@ From the repository root, run:
 python3 skills/productivity/council-review/extensions/codex/install.py
 ```
 
-The installer merges the hook into `~/.codex/hooks.json`, preserving existing entries and avoiding duplicates. Restart Codex CLI and approve the hook if prompted. The hook detects `permission_mode: "plan"` and blocks the first matching `apply_patch` or `Bash` call per session. It treats every Bash call as a possible edit. Later matching calls pass.
+The installer merges `UserPromptSubmit`, `Stop`, and `PreToolUse` hooks into `~/.codex/hooks.json`, preserving existing entries and avoiding duplicates. Restart Codex CLI and approve the hooks if prompted. On the first prompt in Plan mode, `UserPromptSubmit` adds the skill instruction and `Stop` forces one continuation before the answer can finish. `PreToolUse` also blocks the first matching `apply_patch` or `Bash` call per session. It treats every Bash call as a possible edit. Later matching calls pass. The continuation is a stronger checkpoint, not proof that the model completed the review.
 
 ## Claude Code
 
