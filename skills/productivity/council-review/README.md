@@ -25,10 +25,6 @@ For the Plan-mode hook behavior, also follow [the host integration install steps
 | Analogy scout | | ✓ | |
 | Possibility generator | | | |
 | Claim auditor | | | ✓ |
-| Assumption hunter | | | |
-| Adversarial reader | | | |
-| Impact analyst | | | |
-| Robustness checker | | | |
 
 Unassigned roles are defined for possible future teams.
 
