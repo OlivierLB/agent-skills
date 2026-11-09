@@ -2,7 +2,19 @@
 
 A growing collection of focused skills for AI coding agents. Install only the skills you want, or install the whole collection.
 
-## Install for Codex and Claude
+## Install everything
+
+Clone this repository, then run one command to install all skills, the Codex
+hooks, and the Claude Code plugin:
+
+```sh
+python3 install.py
+```
+
+Restart Codex and Claude Code after installation and approve the hooks if
+prompted. The installer requires Node.js/npm and Claude Code to be installed.
+
+## Install skills only
 
 Install one skill for Codex and Claude Code:
 
