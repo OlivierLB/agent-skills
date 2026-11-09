@@ -10,6 +10,26 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /absolute/path/to/council-review/extensions/codex/pre_edit.py"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /absolute/path/to/council-review/extensions/codex/pre_edit.py"
+          }
+        ]
+      }
     ]
   }
 }
