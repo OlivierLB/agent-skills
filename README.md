@@ -22,7 +22,7 @@ These commands install skills globally so they are available across projects. Re
 
 | Skill | Purpose |
 | --- | --- |
-| [`council-review`](skills/productivity/council-review/SKILL.md) | Review a meaningful decision through five independent perspectives, anonymous peer review, and a clear recommendation. |
+| [`council-review`](skills/productivity/council-review/SKILL.md) | Explore ideas, critically review work, or advise on consequential decisions through five independent perspectives and anonymous peer review. |
 
 ## Add a skill
 
