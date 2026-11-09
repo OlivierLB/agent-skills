@@ -1,6 +1,6 @@
 ---
 name: council-review
-description: Run a five-perspective council for decision advice, creative exploration, or critical review when explicitly requested. In Plan mode, review the initial request and the plan before the first edit when the skill is active.
+description: Automatically run a five-perspective council on the initial user request whenever Plan mode is active, before drafting the plan. Also run for decision advice, creative exploration, or critical review when explicitly requested.
 ---
 
 # Council Review
@@ -19,14 +19,14 @@ If modes overlap, choose one primary mode and use another only as a secondary le
 
 ## Plan-mode behavior
 
-Plan mode is separate from analysis modes. When this skill is active in Plan mode:
+Plan mode automatically activates this skill on the initial user request; do not wait for an explicit skill request or the first edit. It is separate from the analysis modes. When active in Plan mode:
 
 1. Run a full council on the initial request to inform the plan.
 2. Run a second full council immediately before the first implementation edit, focused on the agreed plan and intended change. Present the findings, then continue with the already agreed plan.
 
 The second review is advisory. Do not pause for approval or change the plan based on its recommendations alone; incorporate them only if the user asks. Do not repeat the pre-edit review for every later edit unless the plan changes materially or the user asks.
 
-Outside Plan mode, run this skill only when the user explicitly requests it. Skill instructions are not an automatic trigger or an edit lock. The optional hooks in this repository can block a first edit and prompt the agent to run the review, but they do not launch agents themselves. The host agent must conduct the council in the conversation before continuing.
+Outside Plan mode, run this skill only when the user explicitly requests it. In Plan mode, the skill itself is the trigger: complete the initial-request council before drafting the plan, then review the agreed plan before the first edit.
 
 ## Role catalog
 
